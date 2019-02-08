@@ -5,16 +5,12 @@ data = pandas.read_csv("Volcanoes.txt")
 lat = list(data["LAT"])
 lon = list(data["LON"])
 
-
-
-map = folium.Map(location=[33.902075,50.463142])
-
-
+map = folium.Map(location=[42.8799,-113.2210])
 fg = folium.FeatureGroup(name="My Map")
 
-for coordinates in [[33.90, 50.47], [33.92, 50.49]]:
-	fg.add_child (folium.Marker (location=coordinates, popup="Hi We are here", icon=folium.Icon ( color='green' ) ) )
-
+for lt, ln in zip(lat, lon):
+	fg.add_child (folium.Marker(location=[lt, ln], popup="Hi This is a Volcano", icon=folium.Icon ( color='green' )))
+	
 map.add_child(fg)
 
 
