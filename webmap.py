@@ -24,6 +24,10 @@ for lt, ln, na, el in zip(lat, lon, name, elev):
 	" m",fill_color=color_producter(el)) )
 
 
+fg.add_child(folium.GeoJson(data=(open('world.json', 'r'))))
+
+
+
 map.add_child(fg)
 
 map.save("location.html")
