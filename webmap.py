@@ -20,7 +20,8 @@ fg= folium.FeatureGroup(name="My Map")
 
 
 for lt, ln, na, el in zip(lat, lon, name, elev):
-	fg.add_child ( folium.Marker( location=(lt, ln), popup="Volcano Name: "+na +" & Height:"+str(el)+" m", icon=folium.Icon ( color=color_producter(el)) ) )
+	fg.add_child ( folium.CircleMarker( location=(lt, ln),radius=4, popup="Volcano Name: "+na +" & Height:"+str(el)+
+	" m",fill_color=color_producter(el)) )
 
 
 map.add_child(fg)
